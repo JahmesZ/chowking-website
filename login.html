@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Chowking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chowking</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="menu.html">Menu</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Login</h2>
+        <form onsubmit="return validateLogin()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <p id="error" style="color:red;"></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Chowking</p>
+    </footer>
+
+    <script>
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const error = document.getElementById('error');
+            
+            if (username === 'admin' && password === 'password') {
+                alert('Login successful!');
+                window.location.href = 'index.html';
+                return false; // Prevent form submission
+            } else {
+                error.textContent = 'Invalid username or password';
+                return false; // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
